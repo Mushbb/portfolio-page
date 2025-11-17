@@ -1,120 +1,140 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OOO - Web Developer Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>안진석 - Web Developer Portfolio</title>
+	<link rel="stylesheet" href="style.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-    <div class="container header-content">
-        <div class="header-title">
-            <h1>OOO의 포트폴리오</h1>
-            <p>Backend & Frontend Developer</p>
-        </div>
-
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-            </ul>
-        </nav>
-    </div>
+<header class="intro-header">
+	<div class="container">
+		<h1>복잡한 데이터를 직관적으로 풀어내는 풀스택 개발자, 안진석입니다.</h1>
+		<p>Spring Boot, React 기반의 웹 서비스 구축과 d3.js 데이터 시각화 전문성을 갖추고 있습니다.</p>
+	</div>
 </header>
+
+<nav class="sticky-nav">
+	<div class="container">
+		<ul>
+			<li><a href="#projects">Projects</a></li>
+			<li><a href="#experience">Experience</a></li>
+			<li><a href="#about">About Me</a></li>
+		</ul>
+	</div>
+</nav>
 
 <main class="container">
 
-    <section id="about">
-        <h2>About Me</h2>
-        <div class="content-box">
-            <p>
-                안녕하세요. 사용자 경험을 중요시하는 웹 개발자 OOO입니다.<br>
-                Spring Boot와 React를 활용하여 안정적인 서비스를 구축하는 데 관심이 많습니다.<br>
-                현재 클라우드 환경(Azure/AWS)에서 직접 서비스를 배포 및 운영하고 있습니다.
-            </p>
-            <br>
-            <p>
-                <strong>Email:</strong> your.email@example.com <br>
-                <strong>GitHub:</strong> <a href="https://github.com/본인아이디" target="_blank">github.com/본인아이디</a>
-            </p>
-            <p class="small-note">
-                (※ 현재 일부 코드는 리팩토링 중으로 비공개 상태입니다. 요청 시 열람 가능합니다.)
-            </p>
-        </div>
-    </section>
+	<section id="projects">
+		<h2>Recent Projects</h2>
 
-    <section id="projects">
-        <h2>Projects</h2>
+		<div class="project-container">
 
-        <div class="project-container">
+			<article class="project-card">
+				<h3>📈 개인화 주식 대시보드: '오늘의 국장'</h3>
 
-            <article class="project-card">
-                <h3>📈 주식 대시보드 앱</h3>
+				<img src="https://via.placeholder.com/600x400/eee/333?text=Stock+App+Screenshot" alt="주식 앱 스크린샷">
 
-                <img src="https://via.placeholder.com/600x400/eee/333?text=Stock+App+Screenshot" alt="주식 앱 스크린샷">
+				<p class="description">
+					Spring/React 기반의 개인화 주식 대시보드입니다. d3.js를 활용한 인터랙티브 트리맵 차트, react-grid-layout 기반의 동적 위젯 배치 및 레이아웃 저장 기능을 구현했습니다.
+				</p>
 
-                <p class="description">
-                    실시간 주식 데이터를 시각화하여 보여주는 웹 애플리케이션입니다.
-                    회원가입 없이 샘플 계정으로 대시보드 기능을 체험할 수 있습니다.
-                </p>
+				<div class="tech-stack">
+					<span>Spring Boot</span>
+					<span>React.js</span>
+					<span>d3.js</span>
+					<span>Spring Security</span>
+					<span>MS SQL Server</span>
+					<span>Azure</span>
+				</div>
 
-                <div class="tech-stack">
-                    <span>Spring Boot</span>
-                    <span>React</span>
-                    <span>JPA</span>
-                    <span>MySQL</span>
-                    <span>Azure</span>
-                </div>
+				<a href="#" target="_blank" class="demo-button">
+					Live Demo 보러가기
+				</a>
+				<p class="demo-guide">
+					(가입 없이 <strong>'샘플 계정'</strong> 버튼으로 즉시 테스트 가능합니다.)
+				</p>
+			</article>
 
-                <a href="#" target="_blank" class="demo-button">
-                    Live Demo 보러가기
-                </a>
-                <p class="demo-guide">
-                    (로그인 화면의 <strong>'샘플 계정'</strong> 버튼을 이용하세요)
-                </p>
-            </article>
+			<article class="project-card">
+				<h3>💬 실시간 채팅: 'Simplechat'</h3>
 
-            <article class="project-card">
-                <h3>💬 실시간 채팅 앱</h3>
+				<img src="https://via.placeholder.com/600x400/eee/333?text=Chat+App+Screenshot" alt="채팅 앱 스크린샷">
 
-                <img src="https://via.placeholder.com/600x400/eee/333?text=Chat+App+Screenshot" alt="채팅 앱 스크린샷">
+				<p class="description">
+					Spring WebSocket(STOMP)과 React를 활용한 실시간 채팅 서비스입니다. HTTP/WebSocket 하이브리드 통신, 파일 업로드, Jsoup 기반 링크 프리뷰 기능을 구현하여 Azure에 배포했습니다.
+				</p>
 
-                <p class="description">
-                    WebSocket을 활용한 실시간 1:1 및 그룹 채팅 서비스입니다.
-                    가입 절차를 생략하고 즉시 채팅을 테스트해볼 수 있습니다.
-                </p>
+				<div class="tech-stack">
+					<span>Spring Boot</span>
+					<span>React.js</span>
+					<span>WebSocket</span>
+					<span>Spring Security</span>
+					<span>MS SQL Server</span>
+					<span>Azure</span>
+				</div>
 
-                <div class="tech-stack">
-                    <span>Spring Boot</span>
-                    <span>WebSocket</span>
-                    <span>React</span>
-                    <span>Redis</span>
-                    <span>Docker</span>
-                </div>
+				<a href="#" target="_blank" class="demo-button">
+					Live Demo 보러가기
+				</a>
+				<p class="demo-guide">
+					(로그인 화면의 <strong>'체험용 계정으로 즉시 로그인'</strong><br>
+					버튼을 클릭하세요!)
+				</p>
+			</article>
 
-                <a href="#" target="_blank" class="demo-button">
-                    Live Demo 보러가기
-                </a>
-                <p class="demo-guide">
-                    (로그인 화면의 <strong>'체험용 계정으로 즉시 로그인'</strong> 버튼을 클릭하세요!)
-                </p>
-            </article>
+		</div>
+	</section>
 
-        </div>
-    </section>
+	<section id="experience">
+		<h2>Experience</h2>
+
+		<div class="experience-item">
+			<div class="exp-header">
+				<h3>개인 프로젝트: 유튜브 'TheRankings' (데이터 시각화 플랫폼)</h3>
+				<span class="period">2017.08 ~ 2023.02 (약 6년)</span>
+			</div>
+			<p class="role">1인 개발자 / 총괄 운영 (구독자 30만 달성)</p>
+			<ul class="exp-desc">
+				<li><strong>d3.js</strong>를 활용하여 데이터를 동적 영상 콘텐츠로 시각화 (300편 이상 제작)</li>
+				<li><strong>Python</strong>을 이용한 데이터 수집 자동화 및 분석 코드 리팩토링</li>
+				<li>채널 기획, 데이터 분석 기반 성장 전략 수립 및 1인 총괄 운영</li>
+				<li><strong>주요 성과:</strong> 구독자 30만 명, 누적 뷰 1억+, 단일 영상 2,000만 뷰 달성</li>
+			</ul>
+		</div>
+	</section>
+
+	<section id="about">
+		<h2>About Me</h2>
+		<div class="content-box">
+			<p>
+				6년간 데이터 시각화 채널('TheRankings')을 1인 개발/운영하며 <strong>d3.js</strong>와 <strong>Python</strong> 데이터 분석 전문성을 쌓았습니다.
+			</p>
+			<p>
+				이 경험을 바탕으로, **Spring Boot**와 **React** 기반의 풀스택 웹 서비스 구축 역량을 더했습니다.
+				저는 '오늘의 국장' 프로젝트에서처럼, 저의 **[시각화 전문성]**과 **[풀스택 기술력]**을 융합하여 사용자에게 가치 있는 데이터를 직관적으로 제공하는 일에 강점이 있습니다.
+			</p>
+			<br>
+			<p>
+				<strong>자격증:</strong> 정보처리기사, SQL 개발자(SQLD), JLPT N1<br>
+				<strong>Email:</strong> myajsajs@naver.com <br>
+				<strong>GitHub:</strong> <a href="https://github.com/myajsajs" target="_blank">github.com/myajsajs</a>
+			</p>
+		</div>
+	</section>
 
 </main>
 
 <footer>
-    <div class="container">
-        <p>© 2025 OOO. All rights reserved.</p>
-    </div>
+	<div class="container">
+		<p>© 2025 안진석. All rights reserved.</p>
+	</div>
 </footer>
 
 </body>
