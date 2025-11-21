@@ -236,17 +236,15 @@
 
 </body>
 <script>
-	document.addEventListener("DOMContentLoaded", function() {
-		const URL_SimpleChat = 'https://simplechat-kopo307-app-bzeyf7e4hhcegbhy.koreacentral-01.azurewebsites.net/';
-		const URL_Dashboard = 'https://stockdashboard-e8gtedayc5bdgkch.koreacentral-01.azurewebsites.net/';
+	const URL_SimpleChat = 'https://simplechat-kopo307-app-bzeyf7e4hhcegbhy.koreacentral-01.azurewebsites.net/';
+	const URL_Dashboard = 'https://stockdashboard-e8gtedayc5bdgkch.koreacentral-01.azurewebsites.net/';
 
-		// 핑 보내기,  mode: 'no-cors' =  CORS 에러 경고 방지
-		fetch(URL_SimpleChat, { mode: 'no-cors' })
+	// 핑 보내기,  mode: 'no-cors' =  CORS 에러 경고 방지
+	fetch(URL_SimpleChat, { mode: 'no-cors' })
 			.then(() => console.log("서버 깨우기 신호 전송 완료!"))
 			.catch(e => console.log("신호 전송 중 문제 발생(무시 가능):", e));
-		fetch(URL_Dashboard, { mode: 'no-cors' })
-				.then(() => console.log("서버 깨우기 신호 전송 완료!"))
-				.catch(e => console.log("신호 전송 중 문제 발생(무시 가능):", e));
-	});
+	fetch(URL_Dashboard, { mode: 'no-cors' })
+			.then(() => console.log("서버 깨우기 신호 전송 완료!"))
+			.catch(e => console.log("신호 전송 중 문제 발생(무시 가능):", e));
 </script>
 </html>
