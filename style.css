@@ -55,14 +55,14 @@ body {
     background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(5px);
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    padding: 15px 0;
+    padding: 10px 0;
     border-bottom: 1px solid #eee;
 }
 .sticky-nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 15px; /* 간격 조정 */
+    gap: 10px; /* 간격 조정 */
 }
 .sticky-nav a {
     color: #2c3e50;
