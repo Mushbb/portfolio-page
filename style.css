@@ -159,8 +159,71 @@ h2 {
     text-decoration: none;
     border-radius: 8px;
     transition: background-color 0.3s;
+    position: relative;
 }
 .demo-button:hover { background-color: #2980b9; }
+
+/* 상태 표시등 (동그라미) */
+.status-dot {
+    display: inline-block;
+    margin-right: 6px;
+    font-size: 0.8em;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
+}
+
+/* 준비 중일 때 (노란불) 깜빡임 효과 */
+.status-dot.loading {
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+/* 데모 버튼 전용 말풍선 */
+.demo-button::after {
+    content: "⏳ 서버를 깨우고 있습니다 (약 15초 소요)";
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff9800; /* 주황색 경고 */
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s;
+    pointer-events: none;
+    z-index: 20;
+    font-weight: normal;
+}
+
+/* 말풍선 꼬리 */
+.demo-button::before {
+    content: "";
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #ff9800;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s;
+}
+
+/* 활성화 시 표시 */
+.demo-button.show-toast::after,
+.demo-button.show-toast::before {
+    opacity: 1;
+    visibility: visible;
+    bottom: 130%; /* 살짝 위로 */
+}
 
 /* 버튼들을 감싸는 컨테이너 */
 .action-buttons {
@@ -204,7 +267,9 @@ h2 {
     font-size: 0.9em;
     background-color: #f9f9f9;
     transition: all 0.2s;
+    position: relative; /* 말풍선 위치 기준 */
 }
+
 .sub-btn:hover {
     background-color: #eee;
     color: #333;
@@ -216,6 +281,52 @@ h2 {
     font-size: 0.85rem;
     color: #e74c3c;
     margin-top: 10px;
+}
+
+/* 말풍선 본체 (평소에는 안 보임) */
+.sub-btn::after {
+    content: "🚧 준비중입니다"; /* 표시할 텍스트 */
+    position: absolute;
+    bottom: 120%; /* 버튼 바로 위 */
+    left: 50%;
+    transform: translateX(-50%); /* 가운데 정렬 */
+    background-color: #333; /* 말풍선 배경색 */
+    color: #fff; /* 글자색 */
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease-in-out;
+    pointer-events: none; /* 말풍선 클릭 방지 */
+    z-index: 10;
+}
+
+/* 말풍선 꼬리 (선택사항 - 삼각형) */
+.sub-btn::before {
+    content: "";
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #333; /* 말풍선 색이랑 맞춰야 함 */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease-in-out;
+}
+
+/* 활성화 클래스(.show)가 붙으면 말풍선 보이기 */
+.sub-btn.show::after {
+    opacity: 1;
+    visibility: visible;
+    bottom: 130%; /* 살짝 위로 떠오르는 효과 */
+}
+.sub-btn.show::before {
+    opacity: 1;
+    visibility: visible;
+    bottom: 120%;
 }
 
 /* --- 7. Experience 스타일 --- */
