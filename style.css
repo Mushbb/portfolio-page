@@ -162,6 +162,55 @@ h2 {
 }
 .demo-button:hover { background-color: #2980b9; }
 
+/* 버튼들을 감싸는 컨테이너 */
+.action-buttons {
+    display: flex;
+    flex-direction: column; /* 모바일 대응을 위해 세로 정렬 기본 */
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* 메인 데모 버튼 (강조) */
+.demo-button.primary {
+    display: block;
+    background-color: #007bff; /* 파란색 (사용중인 테마색으로 변경 가능) */
+    color: white;
+    text-align: center;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+.demo-button.primary:hover {
+    background-color: #0056b3;
+}
+
+/* 서브 버튼들을 가로로 배치 */
+.sub-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* 서브 버튼 스타일 (심플하게) */
+.sub-btn {
+    flex: 1; /* 너비 반반 차지 */
+    text-align: center;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #555;
+    text-decoration: none;
+    font-size: 0.9em;
+    background-color: #f9f9f9;
+    transition: all 0.2s;
+}
+.sub-btn:hover {
+    background-color: #eee;
+    color: #333;
+    border-color: #ccc;
+}
+
 .demo-guide {
     text-align: center;
     font-size: 0.85rem;
