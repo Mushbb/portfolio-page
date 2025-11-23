@@ -1,4 +1,3 @@
-/* --- 1. 기본 리셋 및 설정 --- */
 * {
     margin: 0;
     padding: 0;
@@ -6,10 +5,10 @@
 }
 
 html {
-    scroll-behavior: smooth; /* 목차 클릭 시 부드럽게 이동 */
+    scroll-behavior: smooth;
 }
 
-/* [최종 수정] 고정된 목차(nav)의 높이(약 65px) + 여유(15px) = 80px */
+/* 섹션 이동 시 상단 네비게이션 높이만큼 여백 확보 */
 section[id] {
     scroll-margin-top: 80px;
 }
@@ -17,7 +16,7 @@ section[id] {
 body {
     font-family: 'Noto Sans KR', sans-serif;
     line-height: 1.65;
-    word-break: keep-all; /* 한글 단어 깨짐 방지 */
+    word-break: keep-all;
     background-color: #f4f7f6;
     color: #333;
 }
@@ -29,63 +28,63 @@ body {
     margin: 0 auto;
 }
 
-/* --- 3. [신규] 소개 헤더 (고정X, 스크롤O) --- */
+/* --- 3. 소개 헤더 --- */
 .intro-header {
-    background-color: #2c3e50; /* 네이비 색상 */
+    background-color: #2c3e50;
     color: white;
-    padding: 40px 20px; /* 넉넉한 상하 여백 */
+    padding: 60px 20px;
     text-align: center;
 }
 .intro-header h1 {
-    font-size: 1.7rem;
-    margin-bottom: 10px;
-    line-height: 1.4; /* 모바일 줄바꿈 대비 */
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    line-height: 1.4;
 }
 .intro-header p {
     font-size: 1rem;
     color: #bdc3c7;
-    max-width: 800px; /* 너무 길어지지 않게 */
+    max-width: 800px;
     margin: 0 auto;
 }
 
-/* --- 4. [신규] 고정 목차 (Sticky) --- */
+/* --- 4. 고정 목차 (Sticky) --- */
 .sticky-nav {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background-color: white; /* 깔끔한 흰색 배경 */
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    padding: 18px 0; /* 목차 바의 '고정 높이'를 결정 (약 60~65px) */
-}
-.sticky-nav .container {
-    width: 90%;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
 }
 .sticky-nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-}
-.sticky-nav li {
-    margin: 0 15px;
+    gap: 20px; /* 간격 조정 */
 }
 .sticky-nav a {
-    color: #2c3e50; /* 네이비 글자색 */
+    color: #2c3e50;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 0.9rem; /* 폰트를 살짝 줄여서 모바일에서도 깔끔하게 */
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all 0.3s;
 }
 .sticky-nav a:hover {
-    color: #3498db; /* 호버 색상 */
+    background-color: #f1f5f9;
+    color: #3498db;
 }
 
-
-/* --- 5. 섹션 및 카드 스타일 (모바일 최적화) --- */
-main { padding: 20px 0; }
+/* --- 5. 섹션 공통 --- */
+main { padding: 30px 0; }
 
 section {
     background-color: white;
     border-radius: 12px;
-    padding: 25px;
+    padding: 30px;
     margin-bottom: 40px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
@@ -93,82 +92,95 @@ section {
 h2 {
     border-bottom: 3px solid #3498db;
     padding-bottom: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     color: #2c3e50;
     font-size: 1.7rem;
+    font-weight: 700;
 }
 
-/* 프로젝트 카드 */
+/* --- 6. 프로젝트 카드 --- */
+.project-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
 .project-card {
     border: 1px solid #eee;
     border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 30px; /* 카드 사이 간격 */
+    padding: 25px;
     background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+}
+.project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
 }
 
-.project-card h3 { color: #2980b9; margin-bottom: 15px; font-size: 1.3rem; }
+.project-card h3 {
+    color: #2980b9;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
 
-/* 이미지 비율 고정 (모바일 시각적 앵커) */
 .project-card img {
     width: 100%;
-    height: auto; /* 높이 고정 */
+    height: auto;
     border-radius: 8px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     border: 1px solid #eee;
+    object-fit: cover;
+    /* 이미지 로딩 실패시 배경색 */
+    background-color: #f8f9fa;
+    min-height: 200px;
 }
 
-.description { margin-bottom: 15px; font-size: 0.95rem; }
+.description { margin-bottom: 15px; font-size: 1rem; color: #444; }
 
-/* 기술 스택 태그 */
-.tech-stack { margin-bottom: 20px; }
+.tech-stack { margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 8px;}
 .tech-stack span {
-    display: inline-block;
-    background-color: #ecf0f1;
-    color: #555;
-    padding: 4px 10px;
-    border-radius: 15px;
+    background-color: #e3f2fd;
+    color: #1565c0;
+    padding: 5px 12px;
+    border-radius: 20px;
     font-size: 0.85rem;
-    margin: 0 5px 5px 0;
     font-weight: 600;
 }
 
-/* 데모 버튼 (엄지손가락 친화적) */
 .demo-button {
     display: block;
     width: 100%;
-    background-color: #3498db; /* 밝은 파랑 */
+    background-color: #3498db;
     color: white;
     text-align: center;
-    padding: 15px 0; /* 터치 영역 확보 */
-    font-size: 1.1rem;
+    padding: 12px 0;
+    font-size: 1rem;
     font-weight: bold;
     text-decoration: none;
     border-radius: 8px;
     transition: background-color 0.3s;
-    box-shadow: 0 4px 6px rgba(52, 152, 219, 0.3);
 }
 .demo-button:hover { background-color: #2980b9; }
 
 .demo-guide {
     text-align: center;
     font-size: 0.85rem;
-    color: #e74c3c; /* 빨간색 계열로 강조 */
+    color: #e74c3c;
     margin-top: 10px;
-    font-weight: bold;
 }
 
-/* --- 6. 경력 (Experience) 섹션 스타일 --- */
+/* --- 7. Experience 스타일 --- */
 .experience-item {
-    margin-bottom: 15px;
+    border-left: 4px solid #3498db;
+    padding-left: 20px;
+    margin-bottom: 20px;
 }
 .exp-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 5px;
-    flex-wrap: wrap; /* 모바일 줄바꿈 대응 */
+    margin-bottom: 8px;
+    flex-wrap: wrap;
 }
 .exp-header h3 {
     font-size: 1.2rem;
@@ -178,69 +190,93 @@ h2 {
 .period {
     font-size: 0.9rem;
     color: #7f8c8d;
-    font-weight: 500;
+    background: #f0f2f5;
+    padding: 2px 8px;
+    border-radius: 4px;
 }
 .role {
     font-size: 1rem;
     font-weight: bold;
-    color: #2980b9; /* 파란색 강조 */
+    color: #2980b9;
     margin-bottom: 10px;
 }
 .exp-desc {
-    list-style-type: disc;
-    padding-left: 20px;
+    list-style-type: none;
     color: #555;
     font-size: 0.95rem;
 }
-.exp-desc li { margin-bottom: 5px; }
-
-
-/* --- 7. 내 소개 (About Me) 섹션 스타일 --- */
-.content-box p {
-    margin-bottom: 15px;
+.exp-desc li {
+    margin-bottom: 5px;
+    position: relative;
+    padding-left: 15px;
 }
-.small-note {
-    font-size: 0.85rem;
-    color: #777;
-    margin-top: 5px;
+.exp-desc li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #3498db;
 }
 
+/* --- 8. [NEW] Skills (Core Competencies) 그리드 스타일 --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
 
-/* --- 8. 푸터 --- */
+.skill-card {
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    transition: background 0.2s;
+}
+.skill-card:hover {
+    background: #fff;
+    border-color: #3498db;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.15);
+}
+
+.skill-card h3 {
+    font-size: 1.1rem;
+    color: #2c3e50;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* --- 9. About & Footer --- */
+.content-box { padding: 10px; }
+.content-box p { margin-bottom: 15px; }
+
 footer {
     text-align: center;
     padding: 40px 0;
     color: #7f8c8d;
     font-size: 0.9rem;
     border-top: 1px solid #ddd;
+    background-color: #fff;
 }
 
-
-/* --- 9. 미디어 쿼리 (PC 화면: 768px 이상) --- */
+/* --- 10. 반응형 (PC 화면) --- */
 @media (min-width: 768px) {
+    .container { width: 85%; }
 
-    .container { width: 85%; } /* PC에선 좀 더 넓게 */
-
-    /* PC에서 소개 헤더 폰트 키우기 */
     .intro-header h1 { font-size: 2.2rem; }
-    .intro-header p { font-size: 1.1rem; }
 
-    /* PC에서 목차 폰트 키우기 */
-    .sticky-nav ul { justify-content: flex-start; } /* PC에선 왼쪽 정렬 */
-    .sticky-nav li { margin: 0 25px; }
-    .sticky-nav a { font-size: 1rem; }
-
-    /* 프로젝트 카드 2열 배치 (이전과 동일) */
+    /* 프로젝트 2열 배치 */
     .project-container {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
-    .project-card {
-        width: 48%; /* 가로 절반 */
-        margin-bottom: 30px;
+        grid-template-columns: 1fr 1fr;
     }
 
-    /* 경력 헤더 줄바꿈 방지 (이전과 동일) */
-    .exp-header { flex-wrap: nowrap; }
+    /* 스킬 카드 2열 배치 */
+    .skills-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* 마지막 홀수 아이템 꽉 채우기 (선택사항) */
+    .skills-grid .skill-card:last-child:nth-child(odd) {
+        grid-column: span 2;
+    }
 }
