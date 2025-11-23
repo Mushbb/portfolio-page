@@ -62,6 +62,7 @@ body {
     list-style: none;
     display: flex;
     justify-content: center;
+    white-space : nowrap;
     gap: 10px; /* 간격 조정 */
 }
 .sticky-nav a {
