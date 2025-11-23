@@ -62,7 +62,7 @@ body {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 20px; /* 간격 조정 */
+    gap: 15px; /* 간격 조정 */
 }
 .sticky-nav a {
     color: #2c3e50;
