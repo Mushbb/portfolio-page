@@ -317,32 +317,30 @@
             });
     }
 
-    // 2. 버튼 클릭 핸들러
-    function checkServerStatus(element, event, key) {
-        // 서버가 아직 준비 안 됐으면 (status == false)
-        if (!serverStatus[key]) {
-            event.preventDefault(); // 링크 이동 일단 막기 (혹은 놔두고 경고만 띄우기도 가능)
+	// 2. 버튼 클릭 핸들러
+	function checkServerStatus(element, event, key) {
+		// 서버가 아직 준비 안 됐으면 (status == false)
+		if (!serverStatus[key]) {
+			// **A 전략: 이동을 완전히 막고 경고만 띄우기**
+			event.preventDefault(); // **링크 이동 완전히 막기**
 
-            // "서버 깨우는 중" 말풍선 띄우기
-            element.classList.add('show-toast');
-            setTimeout(() => {
-                element.classList.remove('show-toast');
-            }, 2000);
+			// "서버 깨우는 중" 말풍선 띄우기
+			element.classList.add('show-toast');
+			setTimeout(() => {
+				element.classList.remove('show-toast');
+			}, 2000);
 
-            // ※ 전략 선택:
-            // A. 이동을 완전히 막고 "기다리세요"라고 하기
-            // B. (추천) 말풍선 띄우고 1초 뒤에 이동시키기 (사용자가 답답해할 수 있으므로)
+			// ※ B 전략 (setTimeout으로 이동) 코드는 제거됨
+			// 이전 코드:
+			// setTimeout(() => {
+			//     window.open(element.href, '_blank');
+			// }, 1200);
 
-            // 여기서는 B전략 (1.5초 뒤 이동)
-            setTimeout(() => {
-                window.open(element.href, '_blank');
-            }, 1200);
-
-        } else {
-            // 서버가 준비됐으면 그냥 통과 (새 탭 열림)
-            // 아무것도 안 해도 됨 (href가 동작함)
-        }
-    }
+		} else {
+			// 서버가 준비됐으면 그냥 통과 (새 탭 열림)
+			// 아무것도 안 해도 됨 (href가 동작함)
+		}
+	}
 
     function showToast(element, event) {
         event.preventDefault(); // 링크 이동 막기

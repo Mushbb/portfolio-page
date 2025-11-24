@@ -184,7 +184,7 @@ h2 {
 
 /* 데모 버튼 전용 말풍선 */
 .demo-button::after {
-    content: "⏳ 서버를 깨우고 있습니다 (약 15초 소요)";
+    content: "⏳ 서버를 깨우고 있습니다";
     position: absolute;
     bottom: 120%;
     left: 50%;
